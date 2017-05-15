@@ -1,0 +1,11 @@
+homepage:
+    path:     /
+    defaults: { _controller: FrontBundle:Default:Index }
+
+registration:
+    path:     /register
+    defaults: { _controller: FrontBundle:User:registration }
+
+login:
+    path:     /login
+    defaults: { _controller: FrontBundle:User:login }
