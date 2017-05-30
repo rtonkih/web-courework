@@ -48,7 +48,10 @@ class User implements UserInterface
      */
     private $password;
 
-    // other properties and methods
+    /**
+     * @ORM\Column(type="string", length=50)
+     */
+    protected $role;
 
     public function getEmail()
     {
@@ -90,24 +93,24 @@ class User implements UserInterface
         $this->password = $password;
     }
 
-    public function getSalt()
-    {
-        // The bcrypt algorithm doesn't require a separate salt.
-        // You *may* need a real salt if you choose a different encoder.
-        return null;
-    }
-
     public function getRoles()
     {
         return array('ROLE_USER');
     }
 
     /**
-     * Removes sensitive data from the user.
-     *
-     * This is important if, at any given point, sensitive information like
-     * the plain-text password is stored on this object.
+     * @param mixed $role
      */
+    public function setRole($role)
+    {
+        $this->role = $role;
+    }
+
+    public function getSalt()
+    {
+        return null;
+    }
+
     public function eraseCredentials()
     {
         // TODO: Implement eraseCredentials() method.

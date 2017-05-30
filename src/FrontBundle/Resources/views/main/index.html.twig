@@ -1,0 +1,31 @@
+{% extends '@Front/base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        Информация только для зарегистрированных пользователей!
+                    </div>
+                    <a href=""></a>
+                    {% if app.user != null %}
+                        <h1>hello {{ app.user.username }}!</h1>
+                        <a href="{{ path('logout') }}" class="btn btn-info">
+                            Выйти
+                        </a>
+                    {% endif %}
+                </div>
+
+                {% if app.user == null %}
+                    <a href="{{ path('login') }}" class="btn btn-info">
+                        Войти
+                    </a>
+                    <a href="{{ path('login') }}" class="btn btn-info">
+                        Зарегистрироваться
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

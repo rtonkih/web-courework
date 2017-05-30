@@ -9,3 +9,11 @@ registration:
 login:
     path:     /login
     defaults: { _controller: FrontBundle:User:login }
+
+login_check:
+    path:     /login_check
+    defaults: { _controller: FrontBundle:User:login }
+
+logout:
+    path:     /logout
+    defaults: { _controller: FrontBundle:User:logout }

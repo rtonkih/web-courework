@@ -9,6 +9,6 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        return new Response('Main front page');
+        return $this->render('FrontBundle:main:index.html.twig');
     }
 }

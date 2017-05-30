@@ -1,16 +1,102 @@
-/app/config/parameters.yml
-/build/
-/phpunit.xml
-/var/*
-!/var/cache
+
+# --- Ignore windows system files ---
+
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msm
+*.msp
+*.lnk
+
+# --- Ignore Linux system files ---
+
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# --- Ignore MAC OS system files ---
+
+*.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+.apdisk
+
+# --- Ignore IDE project files ---
+
+/.buildpath
+/.project
+/.settings
+/nbproject
+/.idea
+
+# --- Vagrant stuff ---
+
+/.vagrant
+
+# --- Composer vendor dir ---
+
+/app/bootstrap.php.cache
+/var/bootstrap.php.cache
+/bin/*
+!bin/console
+!bin/symfony_requirements
+/vendor
+
+# --- Email spool folder ---
+
+/app/spool/*
+
+# --- Cache, session files and logs (Symfony3) ---
+
 /var/cache/*
-!var/cache/.gitkeep
-!/var/logs
 /var/logs/*
-!var/logs/.gitkeep
-!/var/sessions
 /var/sessions/*
+!var/cache/.gitkeep
+!var/logs/.gitkeep
 !var/sessions/.gitkeep
-!var/SymfonyRequirements.php
-/vendor/
+
+# --- Parameters ---
+
+/app/config/parameters.yml
+/app/config/parameters.ini
+
+# --- Assets and user uploads ---
+
 /web/bundles/
+/web/uploads/
+/web/assets/
+
+# --- Assets managed by Bower ---
+/tests/assets/vendor/
+
+# --- PHPUnit ---
+/app/phpunit.xml
+/phpunit.xml
+
+# --- Composer PHAR ---
+/composer.phar
+
+# --- Backup entities generated with doctrine:generate:entities command ---
+*/Entity/*~
+
+/web/css
+/web/js
+/web/img
+
+/node_modules
+/bower_components
