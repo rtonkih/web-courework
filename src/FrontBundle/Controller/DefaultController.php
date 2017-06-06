@@ -3,12 +3,16 @@
 namespace FrontBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Response;
 
 class DefaultController extends Controller
 {
-    public function indexAction()
+    public function aboutAction()
     {
-        return $this->render('FrontBundle:main:index.html.twig');
+        return $this->render('@Front/about.html.twig');
+    }
+
+    public function contactAction()
+    {
+        return $this->render('@Front/contact.html.twig');
     }
 }

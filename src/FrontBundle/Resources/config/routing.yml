@@ -1,7 +1,3 @@
-homepage:
-    path:     /
-    defaults: { _controller: FrontBundle:Default:Index }
-
 registration:
     path:     /register
     defaults: { _controller: FrontBundle:User:registration }
@@ -17,3 +13,21 @@ login_check:
 logout:
     path:     /logout
     defaults: { _controller: FrontBundle:User:logout }
+
+news:
+    path:     /
+    defaults: { _controller: FrontBundle:News:index }
+
+news_detail:
+    path:  /news/{id}
+    defaults: { _controller: FrontBundle:News:show }
+    requirements:
+        id: \d+
+
+about:
+    path:     /about
+    defaults: { _controller: FrontBundle:Default:about }
+
+contact:
+    path:     /contact
+    defaults: { _controller: FrontBundle:Default:contact }

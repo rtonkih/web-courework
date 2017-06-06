@@ -1,0 +1,42 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <div class="panel-heading">
+                    <a href="{{ path('news') }}">Новости</a>
+                    <a href="{{ path('about') }}">О сайте</a>
+                    <a href="{{ path('contact') }}">Контакты</a>
+                    {% if app.user != null %}
+                        <a href="{{ path('logout') }}" class="btn btn-info col-md-offset-10">
+                            Выйти
+                        </a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% if news_list %}
+
+    <div class="container">
+        {% for key,news in news_list %}
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1">
+                        <div class="panel panel-success" style="padding: 10px;">
+                            <p>{{ news.createdAt|date('d-m-Y') }}</p>
+                            <a style="font-size: 18px;" href="{{ path('news_detail', {'id': news.id}) }}">
+                                {{ news.title }}
+                            </a>
+                            <p>{{ news.text[:140]|raw }}</p>
+                            <a href="{{ path('news_detail', {'id': news.id}) }}">Читать далее</a>
+                        </div>
+                    </div>
+                </div>
+        {% endfor %}
+        <div class="navigation">
+            {{ knp_pagination_render(news_list) }}
+        </div>
+    </div>
+    {% endif %}
+{% endblock %}

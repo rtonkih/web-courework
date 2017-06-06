@@ -1,0 +1,19 @@
+admin_news_index:
+    path:     /dashboard
+    defaults: { _controller: AdminBundle:News:index }
+
+admin_news_new:
+    path:     /news/new
+    defaults: { _controller: AdminBundle:News:new }
+
+admin_news_delete:
+    path:  /news/{id}/delete
+    defaults: { _controller: AdminBundle:News:delete }
+    requirements:
+        id: \d+
+
+admin_news_update:
+    path:  /news/{id}/update
+    defaults: { _controller: AdminBundle:News:update }
+    requirements:
+        id: \d+

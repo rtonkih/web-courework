@@ -41,17 +41,14 @@ class User implements UserInterface
     private $plainPassword;
 
     /**
-     * The below length depends on the "algorithm" you use for encoding
-     * the password, but this works well with bcrypt.
-     *
      * @ORM\Column(type="string", length=64)
      */
     private $password;
 
     /**
-     * @ORM\Column(type="string", length=50)
+     * @ORM\Column(type="json_array")
      */
-    protected $role;
+    protected $roles = array();
 
     public function getEmail()
     {
@@ -95,15 +92,17 @@ class User implements UserInterface
 
     public function getRoles()
     {
-        return array('ROLE_USER');
+        $roles = $this->roles;
+        $roles[] = 'ROLE_USER';
+
+        return array_unique($roles);
     }
 
-    /**
-     * @param mixed $role
-     */
-    public function setRole($role)
+    public function setRoles(array $roles)
     {
-        $this->role = $role;
+        $this->roles = $roles;
+
+        return $this;
     }
 
     public function getSalt()
@@ -113,6 +112,5 @@ class User implements UserInterface
 
     public function eraseCredentials()
     {
-        // TODO: Implement eraseCredentials() method.
     }
 }

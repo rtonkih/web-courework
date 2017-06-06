@@ -1,13 +1,37 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+    <link href="https://fonts.googleapis.com/css?family=Arimo:400,400italic,700,700italic&amp;subset=latin,cyrillic"
+          rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800,400italic&amp;subset=latin,cyrillic"
+          rel="stylesheet" type="text/css">
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}"/>
+        <link rel="stylesheet" href="{{ asset('css/main.css') }}"/>
+    {% endblock %}
+
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+{% block header %}
+{% endblock %}
+<div class="admin">
+    <div class="admin__inner">
+        {% block sidebar %}
+            {% include 'FrontBundle:templates:flash_messages.html.twig' %}
+        {% endblock %}
         {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+    </div>
+</div>
+{% block javascripts %}
+    <script src="{{ asset('js/jquery.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.js') }}"></script>
+    <script src="{{ asset('js/tinymce.min.js') }}"></script>
+    <script src="{{ asset('js/main.js') }}"></script>
+    {#<script> $('#flash-messages').flashNotification('init');</script>#}
+{% endblock %}
+</body>
 </html>

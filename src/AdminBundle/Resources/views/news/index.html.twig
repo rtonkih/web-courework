@@ -1,0 +1,54 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="panel panel-default">
+                    <div class="">
+                        <a href="{{ path('news') }}">Вернуться на главную</a>
+                    </div>
+                    <div class="panel-heading">Список новостей</div>
+                </div>
+                <table class="table">
+                    <thead class="thead-inverse">
+                    <tr>
+                        <th>#</th>
+                        <th>Title</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for news_item in news %}
+                        <tr>
+                            <th scope="row">{{ loop.index }}</th>
+                            <td>{{ news_item.title }}</td>
+                            <td>
+                                <a class="btn btn-primary btn-xs"
+                                   href="{{ path('admin_news_update', {'id': news_item.id}) }}">
+                                    <span class="glyphicon glyphicon-pencil"></span>
+                                </a>
+                            </td>
+                            <td>
+                                <a class="btn btn-danger btn-xs"
+                                   href="{{ path('admin_news_delete', {'id': news_item.id}) }}">
+                                    <span class="glyphicon glyphicon-trash"></span>
+                                </a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                <a href="{{ path('admin_news_new') }}" class="btn btn-success">Добавить</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="navigation">
+        {{ knp_pagination_render(news) }}
+    </div>
+
+{% endblock %}
+
+

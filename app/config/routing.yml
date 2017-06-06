@@ -3,5 +3,5 @@ frontend:
     prefix:   /
 
 admin_area:
-    resource: "@SonataAdminBundle/Resources/config/routing/sonata_admin.xml"
+    resource: "@AdminBundle/Resources/config/routing.yml"
     prefix: /admin

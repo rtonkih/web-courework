@@ -18,6 +18,7 @@ use Symfony\Component\Security\Core\Security;
 class FormLoginAuthenticator extends AbstractFormLoginAuthenticator
 {
     private $router;
+
     private $encoder;
 
     public function __construct(RouterInterface $router, UserPasswordEncoderInterface $encoder)
@@ -61,7 +62,7 @@ class FormLoginAuthenticator extends AbstractFormLoginAuthenticator
 
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, $providerKey)
     {
-        $url = $this->router->generate('homepage');
+        $url = $this->router->generate('news');
 
         return new RedirectResponse($url);
     }
@@ -82,7 +83,7 @@ class FormLoginAuthenticator extends AbstractFormLoginAuthenticator
 
     protected function getDefaultSuccessRedirectUrl()
     {
-        return $this->router->generate('homepage');
+        return $this->router->generate('news');
     }
 
     public function supportsRememberMe()

@@ -7,3 +7,5 @@ services:
     app.form_login_authenticator:
         class: CommonBundle\Security\FormLoginAuthenticator
         arguments: ["@router", "@security.password_encoder"]
+    app.access_denied_handler:
+        class: CommonBundle\Security\AccessDeniedHandler

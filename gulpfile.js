@@ -20,6 +20,7 @@ var assets = {
         vendors: [
             'bower_components/jquery/dist/jquery.min.js',
             'bower_components/bootstrap/dist/js/bootstrap.js',
+            'bower_components/tinymce/**/*',
         ],
         dest: 'web/js'
     },
